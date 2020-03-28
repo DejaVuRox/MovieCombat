@@ -1,10 +1,11 @@
-import { MOVIE_SEARCH, FETCH_MOVIES, OPTION } from "../actions/actionTypes";
+import { MOVIE_SEARCH, FETCH_MOVIES, OPTION1, OPTION2 } from "../actions/actionTypes";
 
 const initialState = {
   searchInput: "",
   movies: [],
   loading: false,
-  movie: []
+  movie1: [],
+  movie2: [],
 };
 
 export default function(state = initialState, action) {
@@ -21,10 +22,15 @@ export default function(state = initialState, action) {
         ...state,
         movies: action.payload,
       }
-    case OPTION:
+    case OPTION1:
       return {
         ...state,
-        searchInput: action.payload
+        movie1: action.payload
+      }  
+    case OPTION2:
+      return {
+        ...state,
+        movie2: action.payload
       }  
       default: 
       return state
