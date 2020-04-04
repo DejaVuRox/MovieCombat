@@ -10,11 +10,9 @@ const MovieItem = ({ movie, selectedItem, getMovie }) => {
         src={movie.Poster === "N/A" ? "" : movie.Poster}
         alt=""
       />
-      <span className="title">{movie.Title}</span>
+      <span className="title">{movie.Title} ({movie.Year})</span>
     </NavLink>
   );
 };
 
 export default MovieItem;
-
-// create function on each el that sets the value of input to title
