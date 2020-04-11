@@ -46,11 +46,10 @@ class MovieResult extends Component {
 
         <div className="info">
           <article
-            data-value={awards}
             className={
               movie1Stat.awards < movie2Stat.awards2
-                ? "notification is-warning"
-                : "notification is-primary"
+                ? "notification winning"
+                : "notification movText"
             }
           >
             <p className="subtitle">Awards</p>
@@ -58,11 +57,10 @@ class MovieResult extends Component {
           </article>
 
           <article
-            data-value={dollars}
             className={
               movie1Stat.dollars < movie2Stat.dollars2
-                ? "notification is-warning"
-                : "notification is-primary"
+                ? "notification winning"
+                : "notification movText"
             }
           >
             <p className="subtitle">BoxOffice</p>
@@ -70,11 +68,10 @@ class MovieResult extends Component {
           </article>
 
           <article
-            data-value={metaScore}
             className={
               movie1Stat.metaScore < movie2Stat.metaScore2
-                ? "notification is-warning"
-                : "notification is-primary"
+                ? "notification winning"
+                : "notification movText"
             }
           >
             <p className="subtitle">Metascore</p>
@@ -85,8 +82,8 @@ class MovieResult extends Component {
             data-value={imdbRating}
             className={
               movie1Stat.imdbRating < movie2Stat.imdbRating2
-                ? "notification is-warning"
-                : "notification is-primary"
+                ? "notification winning"
+                : "notification movText"
             }
           >
             <p className="subtitle">IMDB Rating</p>
@@ -94,11 +91,10 @@ class MovieResult extends Component {
           </article>
 
           <article
-            data-value={imdbVotes}
             className={
               movie1Stat.imdbVotes < movie2Stat.imdbVotes2
-                ? "notification is-warning"
-                : "notification is-primary"
+                ? "notification winning"
+                : "notification movText"
             }
           >
             <p className="subtitle">IMDB Votes</p>

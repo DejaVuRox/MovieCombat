@@ -1,9 +1,27 @@
-.container {
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
+.movVS {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    gap: 15rem;
+    margin-bottom: 2rem;
 }
+
 .compare {
-position: absolute;
-bottom: -7rem;
+}
+
+.winner {
+    // display: flex;
+    // justify-content: center;
+    // width: 100%;
+}
+
+.winnerHide {
+    display: none;
+}
+
+.mov1 {
+    display: none;
+}
+
+.mov2 {
+    display: none;
 }

@@ -3,6 +3,8 @@ import "./MoviesSearch.scss";
 import { connect } from "react-redux";
 import MovieList from "./MoviesList";
 
+import svg from "../../../assets/icons/search/sprite.svg";
+
 import {
   movieSearch2,
   fetchMovie2,
@@ -43,13 +45,22 @@ class MoviesSearch extends Component {
 
   render() {
     const btnDisabled = (
-      <button type="submit" disabled>
-        Search
+      <button className="btn-disabled" type="submit" disabled>
+        <svg className="icon-disabled">
+          <use xlinkHref={`${svg}#icon-search`} />
+        </svg>
       </button>
     );
-    const btnEnabled = <button type="submit">Search</button>;
+    const btnEnabled = (
+      <button className="btn-enabled" type="submit">
+        <svg className="icon-enabled">
+          <use xlinkHref={`${svg}#icon-search`} />
+        </svg>
+      </button>
+    );
+
     const display = (
-      <div className="dropdown-content">
+      <div className="myContent">
         <MovieList select={this.handleSelect} movie={this.handleMovie} />
       </div>
     );
@@ -58,22 +69,32 @@ class MoviesSearch extends Component {
       <div className="movieSearch">
         <form className="searchForm" onSubmit={this.handleSubmit}>
           <div className={this.props.openDrop}>
-            <input
-              type="text"
-              placeholder="Enter Movie Name"
-              onChange={this.handleChange}
-              value={
-                this.props.title !== ''
-                  ? this.props.searchInput2
-                  : this.props.title
-              }
-            />
-            <div className="dropdown-menu">
-              {this.state.display ? display : null}
+            <div className="main">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Search Movie..."
+                  onChange={this.handleChange}
+                  className="inputMovie"
+                  value={
+                    this.props.title !== ""
+                      ? this.props.searchInput2
+                      : this.props.title
+                  }
+                />
+              </div>
+
+              <div className="dropdown-menu">
+                {this.state.display ? display : null}
+              </div>
+
+              <div>
+                {this.props.searchInput2.length <= 0 ||
+                this.props.title.length < 0
+                  ? btnDisabled
+                  : btnEnabled}
+              </div>
             </div>
-            {this.props.searchInput2.length <= 0 || this.props.title.length < 0
-              ? btnDisabled
-              : btnEnabled}
           </div>
         </form>
       </div>

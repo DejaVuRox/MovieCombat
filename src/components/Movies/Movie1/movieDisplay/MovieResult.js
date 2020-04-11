@@ -7,7 +7,6 @@ class MovieResult extends Component {
   render() {
     const { result } = this.props;
     const { movie1Stat, movie2Stat } = this.props;
-    const { totalScore1, totalScore2 } = this.props;
     
     const dollars = parseInt(
       result.BoxOffice.replace(/\$/g, "").replace(/,/g, "")
@@ -48,11 +47,10 @@ class MovieResult extends Component {
 
         <div className="info">
           <article
-            data-value={awards}
             className={
               movie1Stat.awards > movie2Stat.awards2
-                ? "notification is-warning"
-                : "notification is-primary"
+                ? "notification winning"
+                : "notification movText"
             }
           >
             <p className="subtitle">Awards</p>
@@ -60,11 +58,10 @@ class MovieResult extends Component {
           </article>
 
           <article
-            data-value={dollars}
             className={
               movie1Stat.dollars > movie2Stat.dollars2
-                ? "notification is-warning"
-                : "notification is-primary"
+                ? "notification winning"
+                : "notification movText"
             }
           >
             <p className="subtitle">BoxOffice</p>
@@ -72,11 +69,10 @@ class MovieResult extends Component {
           </article>
 
           <article
-            data-value={metaScore}
             className={
               movie1Stat.metaScore > movie2Stat.metaScore2
-                ? "notification is-warning"
-                : "notification is-primary"
+                ? "notification winning"
+                : "notification movText"
             }
           >
             <p className="subtitle">Metascore</p>
@@ -84,11 +80,10 @@ class MovieResult extends Component {
           </article>
 
           <article
-            data-value={imdbRating}
             className={
               movie1Stat.imdbRating > movie2Stat.imdbRating2
-                ? "notification is-warning"
-                : "notification is-primary"
+                ? "notification winning"
+                : "notification movText"
             }
           >
             <p className="subtitle">IMDB Rating</p>
@@ -96,11 +91,10 @@ class MovieResult extends Component {
           </article>
 
           <article
-            data-value={imdbVotes}
             className={
               movie1Stat.imdbVotes > movie2Stat.imdbVotes2
-                ? "notification is-warning"
-                : "notification is-primary"
+                ? "notification winning"
+                : "notification movText"
             }
           >
             <p className="subtitle">IMDB Votes</p>
@@ -115,8 +109,6 @@ class MovieResult extends Component {
 const mapStateToProps = state => ({
   movie1Stat: state.result.movie1Stat,
   movie2Stat: state.result.movie2Stat,
-  totalScore1: state.result.totalScore1,
-  totalScore2: state.result.totalScore2,
 });
 
 export default connect(mapStateToProps)(MovieResult);

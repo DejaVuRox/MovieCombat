@@ -1,3 +1,74 @@
 .dropdownShow {
-    display: none;
+  display: none;
+}
+
+.main {
+  display: flex;
+}
+
+.myContent {
+    border-radius: 4px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+    padding: .5rem;
+}
+
+.inputMovie {
+  width: 25rem;
+  height: 3rem;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background-color: var(--background-color);
+  box-shadow: inset 2px 2px 5px rgba(186, 190, 204, 0.95), inset -2px -2px 8px rgba(255, 255, 255, 0.85);
+  transition: all 0.2s;
+   outline-color: transparent;
+   &:focus {
+    box-shadow:  inset 1px 1px 2px rgba(186, 190, 204, 0.95), inset -1px -1px 2px rgba(255, 255, 255, 0.85);
+  } 
+  text-shadow: 1px 1px 0 #FFF
+}
+
+.icon-disabled {
+  display: inline-block;
+  width: 1.7rem;
+  height: 1.7rem;
+  fill: var(--color);
+  transform: translateY(1px);
+    text-shadow: 1px 1px 0 #FFF
+
+}
+
+.btn-disabled {
+  height: 3rem;
+  width: 5rem;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--search-btn);
+  cursor: pointer;
+  outline-color: transparent;
+}
+
+.icon-enabled {
+  display: inline-block;
+  width: 1.7rem;
+  height: 1.7rem;
+  fill:var(--search-btn-enabled);
+  text-shadow: 1px 1px 0 #FFF;
+  transition: all 0.2s;
+}
+
+.btn-enabled {
+  height: 3rem;
+  width: 5rem;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--search-btn);
+  cursor: pointer;
+  outline-color: transparent;
 }

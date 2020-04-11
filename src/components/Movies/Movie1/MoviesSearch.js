@@ -3,6 +3,8 @@ import "./MoviesSearch.scss";
 import { connect } from "react-redux";
 import MovieList from "./MoviesList";
 
+import svg from '../../../assets/icons/search/sprite.svg'
+
 import {
   movieSearch1,
   fetchMovie1,
@@ -13,7 +15,6 @@ import {
 class MoviesSearch extends Component {
   state = {
     display: false,
-    title: "",
   };
 
   handleChange = e => {
@@ -43,14 +44,22 @@ class MoviesSearch extends Component {
 
   render() {
     const btnDisabled = (
-      <button type="submit" disabled>
-        Search
+      <button className="btn-disabled" type="submit" disabled>
+        <svg className="icon-disabled">
+          <use xlinkHref={`${svg}#icon-search`} />
+        </svg>
       </button>
     );
-    const btnEnabled = <button type="submit">Search</button>;
+    const btnEnabled = (
+      <button className="btn-enabled" type="submit">
+        <svg className="icon-enabled">
+          <use xlinkHref={`${svg}#icon-search`} />
+        </svg>
+      </button>
+    );
     const display = (
-      <div className="dropdown-content">
-        <MovieList select={this.handleSelect} movie={this.handleMovie} />
+      <div className="myContent">
+         <MovieList select={this.handleSelect} movie={this.handleMovie} /> 
       </div>
     );
 
@@ -58,22 +67,32 @@ class MoviesSearch extends Component {
       <div className="movieSearch">
         <form className="searchForm" onSubmit={this.handleSubmit}>
           <div className={this.props.openDrop}>
-            <input
-              type="text"
-              placeholder="Enter Movie Name"
-              onChange={this.handleChange}
-              value={
-                this.props.title !== ''
-                  ? this.props.searchInput1
-                  : this.props.title
-              }
-            />
-            <div className="dropdown-menu">
-              {this.state.display ? display : null}
+            <div className="main">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Search Movie..."
+                  onChange={this.handleChange}
+                  className="inputMovie"
+                  value={
+                    this.props.title !== ""
+                      ? this.props.searchInput1
+                      : this.props.title
+                  }
+                />
+              </div>
+
+              <div className="dropdown-menu">
+                {this.state.display ? display : null}
+              </div>
+
+              <div>
+                {this.props.searchInput1.length <= 0 ||
+                this.props.title.length < 0
+                  ? btnDisabled
+                  : btnEnabled}
+              </div>
             </div>
-            {this.props.searchInput1.length <= 0 || this.props.title.length < 0
-              ? btnDisabled
-              : btnEnabled}
           </div>
         </form>
       </div>
@@ -86,7 +105,8 @@ const mapStateToProps = state => ({
   title: state.search.title,
   display: state.search.display,
   openDrop: state.search.openDrop,
-  movies1: state.result.movies1
+  movies1: state.result.movies1,
+  error: state.search.error
 });
 
 export default connect(mapStateToProps, {

@@ -4,13 +4,22 @@ import { NavLink } from "react-router-dom";
 
 const MovieItem = ({ movie, selectedItem, getMovie }) => {
   return (
-    <NavLink className="dropdown-item" to="#" onClick={()=>{selectedItem(movie.Title); getMovie(movie.imdbID)}}>
+    <NavLink
+      className="myActive"
+      to="#"
+      onClick={() => {
+        selectedItem(movie.Title);
+        getMovie(movie.imdbID);
+      }}
+    >
       <img
         className="poster"
         src={movie.Poster === "N/A" ? "" : movie.Poster}
         alt=""
       />
-      <span className="title">{movie.Title} ({movie.Year})</span>
+      <span className="title">
+        {movie.Title} ({movie.Year})
+      </span>
     </NavLink>
   );
 };

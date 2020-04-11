@@ -3,8 +3,9 @@ import './Header.scss'
 
 export default function Header() {
     return (
-      <div>
-        <h1 className='header'>Movies Combat</h1>
+      <div className="headContainer">
+        <h1 className="header">Movies Arena</h1>
+        <p className="desc">Neomorphic UI Design</p>
       </div>
     );
 }

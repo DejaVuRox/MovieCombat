@@ -8,7 +8,9 @@ import {
   STAT_MOV1,
   STAT_MOV2,
   TOTAL_SCORE1,
-  TOTAL_SCORE2
+  TOTAL_SCORE2,
+  WINNER_DISPLAY,
+  ERROR
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -23,6 +25,7 @@ const initialState = {
   disMovie2: false,
   totalScore1: [],
   totalScore2: [],
+  winner: false
 };
 
 export default function(state = initialState, action) {
@@ -82,6 +85,16 @@ export default function(state = initialState, action) {
       return {
         ...state,
         totalScore2: action.payload
+      };
+    case WINNER_DISPLAY:
+      return {
+        ...state,
+        winner: !state.winner
+      };
+    case ERROR:
+      return {
+        ...state,
+        movies1: []
       };
     default:
       return state;

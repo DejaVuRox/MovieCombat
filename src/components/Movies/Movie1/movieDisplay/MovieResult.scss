@@ -3,27 +3,58 @@
   width: 56rem;
   margin-top: 1rem;
 }
-.movieDisWin {
+
+.movData {
   display: flex;
   width: 56rem;
   margin-top: 1rem;
-  background-color: red;
 }
 
 .movPoster {
   height: 45rem;
-  padding-right: 1rem;
+  border-radius: 5px;
+
 }
+
 .movTitle {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 700;
+  text-shadow: 1px 1px 0 #fff;
 }
 
 .movGenre {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  text-shadow: 1px 1px 0 #fff;
 }
 
 .movPlot {
   font-size: 1.2rem;
   width: 30rem;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.winning {
+  background-color: var(--color-win);
+  box-shadow: inset 1px 1px 2px rgba(186, 190, 204, 0.95),
+    inset -1px -1px 2px rgba(253, 230, 230, 0.85);
+  color: white;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.movText {
+  background-color: var(--background-color);
+  text-shadow: 1px 1px 0 #fff;
+  box-shadow: inset 2px 2px 5px rgba(186, 190, 204, 0.95),
+    inset -2px -2px 8px rgba(255, 255, 255, 0.85);
+}
+
+.basic-info {
+  margin-right: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 5px rgba(186, 190, 204, 0.95),
+    inset -2px -2px 8px rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

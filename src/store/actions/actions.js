@@ -1,4 +1,18 @@
-import { MOVIE_SEARCH1,MOVIE_SEARCH2 ,FETCH_MOVIE1, FETCH_MOVIE2, OPTION1, OPTION2 , TITLE, STAT_MOV1, STAT_MOV2, TOTAL_SCORE1, TOTAL_SCORE2} from "./actionTypes";
+import {
+  MOVIE_SEARCH1,
+  MOVIE_SEARCH2,
+  FETCH_MOVIE1,
+  FETCH_MOVIE2,
+  OPTION1,
+  OPTION2,
+  TITLE,
+  STAT_MOV1,
+  STAT_MOV2,
+  TOTAL_SCORE1,
+  TOTAL_SCORE2,
+  WINNER_DISPLAY,
+  ERROR
+} from "./actionTypes";
 import axios from "axios";
 import { apiKey } from "../../components/api/apiKey";
 
@@ -23,6 +37,7 @@ export const title = title => dispatch => {
   });
 };
 
+
 export const fetchMovie1 = movieName => async dispatch => {
   await axios
     .get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${movieName}`)
@@ -32,24 +47,26 @@ export const fetchMovie1 = movieName => async dispatch => {
         payload: response.data.Search
       })
     )
-    .catch(err => console.log(err));
+    .catch(err => dispatch({
+      type: ERROR,
+      payload: console.log(err)
+    })); // need to create something when movie not found
 };
 
 export const fetchMovie2 = movieName => async dispatch => {
   await axios
     .get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${movieName}`)
-    .then(response =>
+    .then(response => 
       dispatch({
         type: FETCH_MOVIE2,
         payload: response.data.Search
       })
     )
-    .catch(err => console.log(err));
+    .catch(err => console.log(err)); // need to create something when movie not found
 };
 
-
 export const option1 = option => async dispatch => {
-   await axios
+  await axios
     .get(`http://www.omdbapi.com/?apikey=${apiKey}&i=${option}`)
     .then(response =>
       dispatch({
@@ -58,10 +75,10 @@ export const option1 = option => async dispatch => {
       })
     )
     .catch(err => console.log(err));
-}
+};
 
 export const option2 = option => async dispatch => {
-   await axios
+  await axios
     .get(`http://www.omdbapi.com/?apikey=${apiKey}&i=${option}`)
     .then(response =>
       dispatch({
@@ -69,8 +86,8 @@ export const option2 = option => async dispatch => {
         payload: response.data
       })
     )
-    .catch(err => console.log(err));
-}
+    .catch(err => console.log(err)); 
+};
 
 export const movieStat1 = stat => dispatch => {
   dispatch({
@@ -100,3 +117,8 @@ export const totalScore2 = score => dispatch => {
   });
 };
 
+export const winnerDis = () => dispatch => {
+  dispatch({
+    type: WINNER_DISPLAY
+  });
+};

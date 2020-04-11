@@ -1,0 +1,32 @@
+.winnerSelected {
+  display: flex;
+  margin-top: 5rem;
+  padding: 2rem 1rem;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: -11.5rem;
+  top: 8rem;
+  width: max-content;
+  box-shadow: inset 2px 2px 5px rgba(186, 190, 204, 0.95), inset -2px -2px 8px rgba(255, 255, 255, 0.85);
+}
+
+.winPoster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MovWinPoster{
+  border-radius: 5px;
+}
+
+.absWinner {
+  font-size: 1.9rem;
+  text-shadow: 1px 1px 0 #FFF;
+}
+
+.absTitle {
+  font-size: 2.4rem;
+  text-shadow: 1px 1px 0 #FFF;
+}

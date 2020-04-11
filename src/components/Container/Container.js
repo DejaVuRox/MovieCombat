@@ -9,19 +9,22 @@ import MovieResultList2 from "../Movies/Movie2/movieDisplay/MovieResultList";
 import MovieComparison from '../MovieComparison/MovieComparison'
 class Container extends Component {
   render() {
-      const { disMovie1 } = this.props;
-      const {disMovie2} = this.props
+      const { disMovie1, disMovie2, winner } = this.props;
+      
     return (
       <div className="container">
-        <div className="mov1">
-          <MovieSearch1 />
-          {!disMovie1 ? null : <MovieResultList1 />}
+        <div className="movVS">
+          <div className={winner ? "mov1" : ""}>
+            <MovieSearch1 />
+            {!disMovie1 ? null : <MovieResultList1 />}
+          </div>
+          <div className={winner ? "mov2" : ""}>
+            <MovieSearch2 />
+            {!disMovie2 ? null : <MovieResultList2 />}
+          </div>
         </div>
-        <div className="mov2">
-          <MovieSearch2 />
-          {!disMovie2 ? null : <MovieResultList2 />}
-        </div>
-        <div className='compare'>
+
+        <div className="compare">
           <MovieComparison />
         </div>
       </div>
@@ -31,7 +34,8 @@ class Container extends Component {
 
 const mapStateToProps = state => ({
   disMovie1: state.result.disMovie1,
-  disMovie2: state.result.disMovie2
+  disMovie2: state.result.disMovie2,
+  winner: state.result.winner
 });
 
 export default connect(mapStateToProps)(Container);
